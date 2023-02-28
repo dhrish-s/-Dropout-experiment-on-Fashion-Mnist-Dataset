@@ -34,16 +34,24 @@ x_test = x_test.reshape(10000, 784)
 x_train = x_train.astype('float32')
 
 x_test = x_test.astype('float32')
+
 x_train /= 255
+
 x_test /= 255
+
 y_train = keras.utils.to_categorical(y_train, 10)
+
 y_test = keras.utils.to_categorical(y_test, 10)
 
 - Build the neural network: We build a neural network with two hidden layers, each consisting of 512 neurons and using the ReLU activation function. We also add a dropout layer with a dropout rate of 0.2 to the second hidden layer to prevent overfitting. Finally, we add an output layer with 10 neurons and using the softmax activation function for multi-class classification.
 model = Sequential()
+
 model.add(Dense(512, activation='relu', input_shape=(784,)))
+
 model.add(Dense(512, activation='relu'))
+
 model.add(Dropout(0.2))
+
 model.add(Dense(10, activation='softmax'))
 
 - Compile the model: We compile the model by specifying the loss function, optimizer, and evaluation metrics. We use the categorical cross-entropy loss function for multi-class classification, the RMSprop optimizer, and accuracy as the evaluation metric.
