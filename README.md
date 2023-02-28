@@ -28,8 +28,11 @@ from keras.optimizers import RMSprop
 
 - Preprocess the data: We preprocess the data by reshaping the images from a 2D array of 28x28 pixels to a 1D array of 784 pixels. We also normalize the pixel values to be between 0 and 1, and convert the labels to categorical format using one-hot encoding.
 x_train = x_train.reshape(60000, 784)
+
 x_test = x_test.reshape(10000, 784)
+
 x_train = x_train.astype('float32')
+
 x_test = x_test.astype('float32')
 x_train /= 255
 x_test /= 255
